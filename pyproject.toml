@@ -7,6 +7,7 @@ name = "mppt_env"
 version = "1.0.0"
 description = "Gym environment for MPPT of a partially shaded PV array"
 requires-python = ">=3.9"
+license = {text = "MIT"}
 dependencies = ["gym>=0.21,<0.24", "numpy"]
 
 [tool.setuptools]

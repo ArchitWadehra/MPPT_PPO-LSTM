@@ -28,7 +28,7 @@ mppt_env/              Gym environment (installable package)
   data/shading_classes.json   1000 shading patterns grouped by GMPP peak
 train.py               train PPO-LSTM with RLlib
 evaluate.py            evaluate a PPO-LSTM checkpoint
-baselines/             Perturb & Observe and PPO + IC (see baselines/README.md)
+baselines/             Perturb & Observe, DDPG and PPO + IC (see baselines/README.md)
 checkpoints/ppo_lstm/  trained agent used in the paper (iteration 276)
 checkpoints/ppo_ic/    trained PPO + IC baseline
 results/paper/         per-step power of every algorithm for the cases in Figs. 16, 18-20
@@ -76,6 +76,7 @@ python evaluate.py --checkpoint ~/ray_results/<run>/checkpoint_<n>
 ```bash
 python -m baselines.perturb_observe
 python -m baselines.ppo_ic evaluate
+python -m baselines.ddpg train --episodes 15000 --output my_ddpg.pt
 ```
 
 **Figures**: open `notebooks/paper_figures.ipynb`.
@@ -142,8 +143,8 @@ Accuracy is the mean of `P / GMPP` after the first 200 steps.
   percent between runs. Use `evaluate.py --deterministic` for the mean action.
 - `results/paper/` contains the traces behind the paper's figures and tables. Recomputing the
   accuracy from them gives Tables 5, 8, 10 and 12 to within 0.05 %.
-- The DDPG baseline was trained with the TensorFlow 1 code of Avila et al. and is not included;
-  its static traces are in `results/paper/static/`.
+- The paper's DDPG results came from the TensorFlow 1 code of Avila et al. `baselines/ddpg.py`
+  is a PyTorch reimplementation with the same setup; no trained DDPG model is included.
 
 ## Citation
 
@@ -158,6 +159,10 @@ Accuracy is the mean of `P / GMPP` after the first 200 steps.
   doi     = {10.1016/j.asoc.2024.111728}
 }
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE).
 
 ## Acknowledgements
 
