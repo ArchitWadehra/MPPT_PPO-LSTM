@@ -55,7 +55,7 @@ pytest
 ## Usage
 
 **Evaluate the released agent** on the three static PSCs, the three dynamic cases and 100 random
-PSCs per case (about an hour on a CPU; `--n-random 0` for a quick run):
+PSCs per case (about 4 hours on a CPU; `--n-random 0` for a quick run of a few minutes):
 
 ```bash
 python evaluate.py
@@ -67,7 +67,7 @@ python evaluate.py --save-traces results/rerun --output results/rerun/summary.js
 one GPU; the best checkpoint is kept.
 
 ```bash
-python train.py --iterations 500 --workers 12 --gpus 1
+python train.py --iterations 500 --workers 12 --gpus 1 --seed 0
 python evaluate.py --checkpoint ~/ray_results/<run>/checkpoint_<n>
 ```
 

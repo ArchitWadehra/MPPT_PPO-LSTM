@@ -21,10 +21,11 @@ def register_envs():
     register_env("my_env", lambda env_config: MpptEnv())
 
 
-def build_config(workers=12, gpus=1):
+def build_config(workers=12, gpus=1, seed=None):
     """PPO-LSTM configuration with the tuned hyperparameters of Table 4."""
     return (
         PPOConfig()
+        .debugging(seed=seed)
         .environment(env=ENV_NAME, disable_env_checking=True)
         .framework("torch")
         .rollouts(num_rollout_workers=workers, observation_filter="MeanStdFilter")
@@ -54,11 +55,12 @@ def main():
     parser.add_argument("--workers", type=int, default=12, help="number of rollout workers")
     parser.add_argument("--gpus", type=float, default=1)
     parser.add_argument("--checkpoint-dir", default=None, help="defaults to ~/ray_results/<run>")
+    parser.add_argument("--seed", type=int, default=None, help="random seed for repeatable runs")
     args = parser.parse_args()
 
     ray.init()
     register_envs()
-    algo = build_config(args.workers, args.gpus).build()
+    algo = build_config(args.workers, args.gpus, args.seed).build()
 
     best_reward, best_checkpoint = float("-inf"), None
     for i in range(args.iterations):

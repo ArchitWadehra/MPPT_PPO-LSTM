@@ -21,8 +21,7 @@ from mppt_env.evaluation import SCENARIOS, evaluate, save_traces
 DEFAULT_MODEL = Path(__file__).parents[1] / "checkpoints" / "ppo_ic" / "ppo_ic_model.zip"
 
 P_MAX = 53848.0
-# Observation bounds used for normalization. As in the original implementation, dP/dV and T are
-# scaled with the dP bounds; the released model was trained this way.
+# Observation bounds used for normalization (as used to train the released model)
 OBS_LOW = np.array([0.0, 0.0, 0.0, -5.0, -375.0, -P_MAX / 2, -P_MAX / 2, -P_MAX / 2])
 OBS_HIGH = np.array([210.0, 375.0, P_MAX, 5.0, 375.0, P_MAX / 2, P_MAX / 2, P_MAX / 2])
 DISCRETE_BINS = 1024
