@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mppt_env"
+version = "1.0.0"
+description = "Gym environment for MPPT of a partially shaded PV array"
+requires-python = ">=3.9"
+dependencies = ["gym>=0.21,<0.24", "numpy"]
+
+[tool.setuptools]
+packages = ["mppt_env"]
+
+[tool.setuptools.package-data]
+mppt_env = ["data/*.json"]

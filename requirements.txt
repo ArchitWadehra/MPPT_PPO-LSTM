@@ -1,0 +1,11 @@
+# Python 3.9 or 3.10. Versions match those used for the paper; the released
+# checkpoint can only be restored with ray 2.2.0.
+ray[rllib]==2.2.0
+gym==0.23.1
+torch==1.13.1
+numpy==1.23.5
+scipy
+pandas<2
+matplotlib
+setuptools<70  # ray 2.2 imports pkg_resources
+pytest

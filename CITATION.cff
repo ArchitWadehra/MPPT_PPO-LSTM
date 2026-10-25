@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "MPPT_PPO-LSTM"
+authors:
+  - family-names: Wadehra
+    given-names: Archit
+  - family-names: Bhalla
+    given-names: Siddhant
+  - family-names: Jaiswal
+    given-names: Vicky
+  - family-names: Rana
+    given-names: K. P. S.
+  - family-names: Kumar
+    given-names: Vineet
+preferred-citation:
+  type: article
+  title: "A deep recurrent reinforcement learning approach for enhanced MPPT in PV systems"
+  authors:
+    - family-names: Wadehra
+      given-names: Archit
+    - family-names: Bhalla
+      given-names: Siddhant
+    - family-names: Jaiswal
+      given-names: Vicky
+    - family-names: Rana
+      given-names: K. P. S.
+    - family-names: Kumar
+      given-names: Vineet
+  journal: "Applied Soft Computing"
+  volume: 162
+  start: 111728
+  year: 2024
+  doi: "10.1016/j.asoc.2024.111728"
